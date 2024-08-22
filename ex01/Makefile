@@ -1,4 +1,4 @@
-NAME = compare
+NAME = Iter
 
 # COMPILE FLAGS
 CXX			=	c++

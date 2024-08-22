@@ -1,4 +1,4 @@
-NAME = compare
+NAME = Array
 
 # COMPILE FLAGS
 CXX			=	c++
