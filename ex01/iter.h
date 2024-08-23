@@ -7,16 +7,14 @@
 //値を変更しない時に使う関数
 template <typename T>
 void printValue(const T& value) {
-	std::cout << "Value: " << value << std::endl;
+	std::cout << "Const Value: " << value << std::endl;
 }
 
 //インスタンス化して、テンプレート関数で実行するテンプレート関数
 //値を変換したい時に使う関数
 template <typename T>
 void printValue(T& value) {
-	value ++;
-	std::cout <
-	< "Value: " << value << std::endl;
+	std::cout << "Value: " << value << std::endl;
 }
 
 //const テンプレート関数
