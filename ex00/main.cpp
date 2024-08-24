@@ -5,10 +5,12 @@
 
 int main()
 {
+	//const variable
 	const int a = 2;
 	const int b = 3;
 
-	// ::swap( a, b );
+	//a & b are const that will occuried the error here
+	//swap(a,b);
 	std::cout << "a = " << a << ", b = " << b << std::endl;
 	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
 	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
@@ -33,9 +35,10 @@ int main()
 	std::cout << "ret_equal_d : " << ret_equal_d << std::endl;
 	std::cout << "ret_equal_f : " << ret_equal_f << std::endl;
 
-	// a = 5, b = 10;
-    // ::swap(a, b);
-    std::cout << "a: " << a << ", b: " << b << std::endl;
+	//swap test non-const variable
+	int non_const_a = 5, non_const_b = 10;
+    ::swap(non_const_a, non_const_b);
+    std::cout << "a: " << non_const_a << ", b: " << non_const_b << std::endl;
 
 
 	return 0;
