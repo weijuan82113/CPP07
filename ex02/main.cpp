@@ -1,25 +1,57 @@
-#include "Array.h"
 #include <iostream>
+#include <cstdlib>
+#include "Array.h"
 
-int main()
+#define MAX_VAL 2
+int main(int, char**)
 {
-	const unsigned int length = 12;
-	Array<int> intArray(length);
-	Array<double> doubleArray(length);
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    std::srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
 
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-3] = 0;
+        std::cout << "numbers[-3] = 0; successful" << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+        std::cout << "numbers[MAX_VAL] = 0; successful" << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-	std::cout << "intArray's size: " << intArray.size() << std::endl;
-	std::cout << "doubleArray's size: " << doubleArray.size() << std::endl;
-
-
-	for (unsigned int i = 0; i < length; i++)
-	{
-		intArray[i] = i;
-		doubleArray[i] = i + 0.5;
-	}
-
-	for (unsigned int i = length - 1; i > 0; --i)
-		std::cout << intArray[i] << '\t' << doubleArray[i] << '\n';
-
-	return 0;
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+        std::cout << "numbers["<< i <<"]" << numbers[i] << std::endl;
+    }
+    delete [] mirror;//
+    return 0;
 }
