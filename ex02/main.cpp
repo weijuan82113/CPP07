@@ -49,7 +49,9 @@ int main(int, char**)
 
     for (int i = 0; i < MAX_VAL; i++)
     {
+        //non-const operator[]
         numbers[i] = rand();
+        //const operator[]
         std::cout << "numbers["<< i <<"]" << numbers[i] << std::endl;
     }
     delete [] mirror;//
