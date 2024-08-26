@@ -19,32 +19,32 @@ int main()
 	double double_array[3] = {1.1e10, 12.1234567890, 1.12345};
 
 	std::cout << "------int test------" << std::endl;
-	::iter(const_int_array, 3, ::printValue<int>);
-	::iter(int_array, 3, ::printValue<int>);
+	iter(const_int_array, 3, printValue<int>);
+	iter(int_array, 3, printValue<int>);
 	std::cout << "------int test------\n\n" << std::endl;
 
 
 	std::cout << "------char test------" << std::endl;
-	::iter(const_char_array, 3, ::printValue<char>);
-	::iter(char_array, 3, ::printValue<char>);
+	iter(const_char_array, 3, printValue<char>);
+	iter(char_array, 3, printValue<char>);
 	std::cout << "------char test------\n\n" << std::endl;
 
 
 	std::cout << "------string test------" << std::endl;
-	::iter(const_str_array, 3, ::printValue<std::string>);
-	::iter(str_array, 3, ::printValue<std::string>);
+	iter(const_str_array, 3, printValue<std::string>);
+	iter(str_array, 3, printValue<std::string>);
 	std::cout << "------string test------\n\n" << std::endl;
 
 
 	std::cout << "------float test------" << std::endl;
-	::iter(const_float_array, 3, ::printValue<float>);
-	::iter(float_array, 3, ::printValue<float>);
+	iter(const_float_array, 3, printValue<float>);
+	iter(float_array, 3, printValue<float>);
 	std::cout << "------float test------\n\n" << std::endl;
 
 
 	std::cout << "------double test------" << std::endl;
-	::iter(const_double_array, 3, ::printValue<double>);
-	::iter(double_array, 3, ::printValue<double>);
+	iter(const_double_array, 3, printValue<double>);
+	iter(double_array, 3, printValue<double>);
 	std::cout << "------double test------\n\n" << std::endl;
 
 

@@ -12,6 +12,7 @@ int main()
 	//a & b are const that will occuried the error here
 	//swap(a,b);
 	std::cout << "a = " << a << ", b = " << b << std::endl;
+	//min is decared as static template that it has to be attached with :: scope specifier
 	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
 	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
 	std::string c = "chaine1";
