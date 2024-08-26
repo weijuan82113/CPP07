@@ -16,15 +16,33 @@ Array<T>::Array() : length_(0), data_(NULL)
 
 // Parameterized constructor
 template <typename T>
-Array<T>::Array(unsigned int length) : length_(length), data_(new T[length])
+Array<T>::Array(unsigned int length) : length_(length)
 {
 	std::cout << "Constructe Array[" << length << "]" << std::endl;
+    try
+    {
+        //use () to allocate new memory to NULL initialization
+        data_ = new T[length]();
+    }
+    catch(std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 }
 
 // Copy constructor
 template <typename T>
-Array<T>::Array(const Array& arr) : length_(arr.length_), data_(new T[arr.length_])
+Array<T>::Array(const Array& arr) : length_(arr.length_)
 {
+    try
+    {
+        //use () to allocate new memory to NULL initialization
+        data_ = new T[arr.length_]();
+    }
+    catch(std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
     *this = arr;
 }
 
@@ -34,9 +52,19 @@ Array<T>& Array<T>::operator=(const Array& arr)
 {
     if (this != &arr)
     {
+        //make sure the date_'s memory is reserved and delete the original memory
+        T* temp;
+        try
+        {
+            temp = new T[arr.length_];
+        }
+        catch (std::exception& e)
+        {
+            std::cerr << e.what() << std::endl;
+        }
         delete[] data_;
         length_ = arr.length_;
-        data_ = new T[length_];
+        data_ = temp;
         std::memcpy(data_, arr.data_, length_ * sizeof(T));
     }
     return *this;
@@ -69,7 +97,7 @@ const T& Array<T>::operator[](unsigned int index) const
 }
 
 template <typename T>
-unsigned int Array<T>::size()
+unsigned int Array<T>::size() const
 {
     return length_;
 }

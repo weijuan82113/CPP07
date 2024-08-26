@@ -9,11 +9,11 @@ class Array
 		Array(unsigned int length);
 		~Array();
 		Array(const Array& arr);
-		Array& operator=(const Array&);
+		Array& operator=(const Array& arr);
 		//constとnon-constのoperator[]
 		T& operator[](unsigned int index);
 		const T& operator[](unsigned int index) const;
-		unsigned int size();
+		unsigned int size() const;
 
 	private:
 		unsigned int length_;
