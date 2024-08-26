@@ -4,19 +4,22 @@
 template <typename T>
 static void swap(T& x, T& y)
 {
-	T s = y;
+	//Do not declare T s = y directly, to avoid assuring the Type T defined =operator
+	T s;
+	s = y;
 	y = x;
 	x = s;
 }
 
+//have to return const T&, if return T the func has to construtor T and copy value to it
 template <typename T>
-static T max(const T& x, const T& y)
+static const T& max(const T& x, const T& y)
 {
 	return (x < y) ? y : x;
 }
 
 template <typename T>
-static T min(const T& x, const T& y)
+static const T& min(const T& x, const T& y)
 {
 	return (x > y) ? y : x;
 }

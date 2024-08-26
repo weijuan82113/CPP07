@@ -38,7 +38,7 @@ int main()
 	//swap test non-const variable
 	int non_const_a = 5, non_const_b = 10;
     ::swap(non_const_a, non_const_b);
-    std::cout << "a: " << non_const_a << ", b: " << non_const_b << std::endl;
+    std::cout << "non_const_a: " << non_const_a << ", non_const_b: " << non_const_b << std::endl;
 
 
 	return 0;
